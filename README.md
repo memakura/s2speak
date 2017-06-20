@@ -1,5 +1,5 @@
 # s2speech
-Scratch 2 OpenJTalk (Speech Synthesis)
+Scratch 2 OpenJTalk (Speech Synthesis)    
 
 ## 必要なもの / Requirement
 - Windows 10 (7? 8?)
@@ -43,3 +43,13 @@ Scratch 2 OpenJTalk (Speech Synthesis)
 1. Edit htsvoices/voices.cfg
 1. Edit scratch/speech.s2e if necessary (e.g., add numbers for voice_id)
 1. Run s2speech.py
+
+----
+## Reference: https://github.com/nvdajp/python-jtalk/
+- Updated scripts for Python 3.5
+- jtalk directory is from nvdajp
+- Compiled Mecab and OpenJTalk with 64bit
+
+## Features
+- Asynchronous I/O (asyncio) HTTP server (aiohttp)
+- Config file for htsvoices : voices can be added easily
