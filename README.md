@@ -45,10 +45,14 @@ Scratch 2 OpenJTalk (Speech Synthesis)
 1. Run s2speech.py
 
 ----
-## Reference: https://github.com/nvdajp/python-jtalk/
-- Updated scripts for Python 3.5
-- jtalk directory is from nvdajp
-- Compiled Mecab and OpenJTalk with 64bit
+## Original script
+- https://github.com/nvdajp/python-jtalk/
+    - Updated scripts for Python 3.5
+    - jtalk directory is from nvdajp
+    - Compiled Mecab and OpenJTalk with 64bit
+
+## License
+- GPL
 
 ## Features
 - Asynchronous I/O (asyncio) HTTP server (aiohttp)
