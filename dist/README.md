@@ -1,6 +1,5 @@
-# s2speech
+# s2speech インストーラ
 scratchで音声合成 (OpenJTalk を scratch 2 オフラインエディタから呼ぶ)
-
 ![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
 
 ## インストール
@@ -33,6 +32,5 @@ scratchで音声合成 (OpenJTalk を scratch 2 オフラインエディタか�
 
 ## Notes
 - Original python-jtalk scripts are from https://github.com/nvdajp/python-jtalk/
-    - Updated scripts for Python 3.5
 - jtalk directory is from nvdajp
 - Mecab and OpenJTalk DLLs were compiled with 64bit
