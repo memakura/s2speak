@@ -23,46 +23,62 @@ import pstats
 from jtalkCore import *
 import jtalkPrepare
 
-import configparser
 import asyncio
 from aiohttp import web
 
 
-class s2jtalk:
+class S2jtalk:
+    """ scratch 2 openjtalk """
     def __init__(self):
         self.host = '127.0.0.1'
         self.port = 50210
 
         self.waiting_commands = set() # waiting block in scratch
 
-        self.MECAB_DIR = r'.\jtalk'
-        self.JT_LIB_DIR = r'.\jtalk'
-        self.HTSVOICES_DIR = r'.\htsvoices'
-        self.JT_DLL = os.path.join(self.JT_LIB_DIR, 'libopenjtalk.dll')
+        self.mecab_dir = r'.\jtalk'
+        self.jt_lib_dir = r'.\jtalk'
+        self.htsvoices_dir = r'.\htsvoices'
+        self.jt_dll = os.path.join(self.jt_lib_dir, 'libopenjtalk.dll')
 
-        config = configparser.ConfigParser()
-        config.read(os.path.join(self.HTSVOICES_DIR, 'voices.cfg'))
+        # create a folder for user-prepared htsvoices if not exists
+        self.user_htsvoices_dir = os.path.join(os.getenv('LOCALAPPDATA'), r's2speech\htsvoices')
+        print(self.user_htsvoices_dir)
+        if not os.path.exists(self.user_htsvoices_dir):
+            os.makedirs(self.user_htsvoices_dir)
+
+        # prepare voice settings
+        def _readconfig(path):
+            import configparser
+            config = configparser.ConfigParser()
+            config.read(path)
+            #self.voices.extend([config[section] for section in config.sections()]) # list of dic
+            for section in config.sections():
+                v = config[section]
+                self.voices.append({
+                    'name' : section,
+                    'lang' : v['lang'],
+                    'samp_rate' : int(v['samp_rate']),
+                    'fperiod' : int(v['fperiod']),
+                    'lf0_base' : float(v['lf0_base']),
+                    'pitch_bias' : float(v['pitch_bias']),
+                    'speaker_attenuation' : float(v['speaker_attenuation']),
+                    'htsvoice' : os.path.join(self.htsvoices_dir, v['htsvoice'])
+                })
 
         self.voices = [{'name':'zero'}] # dummy for index 0
-        #for section in config.sections(): config[section]['name'] = section # add 'name' option
-        #self.voices.extend([config[section] for section in config.sections()]) # list of dic
-        for section in config.sections():
-            v = config[section]
-            self.voices.append({
-                'name' : section,
-                'lang' : v['lang'],
-                'samp_rate' : int(v['samp_rate']),
-                'fperiod' : int(v['fperiod']),
-                'lf0_base' : float(v['lf0_base']),
-                'pitch_bias' : float(v['pitch_bias']),
-                'speaker_attenuation' : float(v['speaker_attenuation']),
-                'htsvoice' : os.path.join(self.HTSVOICES_DIR, v['htsvoice'])
-            })
+        for dir_path in [self.htsvoices_dir, self.user_htsvoices_dir]:
+            cfgfile_path = os.path.join(dir_path, 'voices.cfg')
+            if os.path.isfile(cfgfile_path):
+                _readconfig(cfgfile_path)
 
         self.voice_id_max = len(self.voices)-1
+        # print loaded voices
+        for i in range(1, len(self.voices)):
+            print(i, ':', self.voices[i]['name'])
 
         # default voice id
         self.voice_id = 1
+
 
 
     def pa_play(self, data, samp_rate=16000):
@@ -182,10 +198,10 @@ class s2jtalk:
         njd = NJD()
         jpcommon = JPCommon()
         engine = HTS_Engine()
-        libjt_initialize(self.JT_DLL)
+        libjt_initialize(self.jt_dll)
         v = self.voices[self.voice_id]
         libjt_load(v['htsvoice'])
-        Mecab_initialize(print, self.MECAB_DIR)
+        Mecab_initialize(print, self.mecab_dir)
 
         app = web.Application()
         app.router.add_get('/changevoice/{voice_id}', self.changevoice)
@@ -197,5 +213,5 @@ class s2jtalk:
 
 
 if __name__ == '__main__':
-    server = s2jtalk()
+    server = S2jtalk()
     server.main()

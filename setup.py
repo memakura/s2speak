@@ -40,7 +40,7 @@ msi_data = {"Shortcut": shortcut_table}
 build_exe_options = {"packages": ['asyncio'],
                     "excludes": [],
                     "includes": [],
-                    "include_files": ['jtalk/','htsvoices/','images/','scratch/']
+                    "include_files": ['jtalk/','htsvoices/','images/','00scratch/']
 }
 #                    "compressed": True
 

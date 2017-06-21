@@ -2,21 +2,21 @@
 Scratch 2 Speech (wrapping python-openjtalk)
 
 ## 必要なもの / Requirement
-- Windows 10 (7? 8?)
-- Scratch 2.0 (offline version)
-- Python 3.5
-    - pyaudio (pip install pyaudio)
-    - aiohttp (pip install aiohttp)
+- Windows 10 (64bit) (Windows 7 や 8でも可?)
+- Scratch 2 offline editor
+- Python 3.5 (64bit)
+    - pyaudio (pip install pyaudio しておく)
+    - aiohttp (pip install aiohttp しておく)
 
 ## デモ
-1. Scratch 2.0 (offline) を立ち上げる
-1. scratch/project.sb2 を開く
+1. Scratch 2 (offline) を立ち上げる
+1. 00scratch/project.sb2 を開く
 1. Pythonの動くコマンドラインで s2speech.py を実行する : `python s2speech.py`
 
 ## 使い方
-1. Scratch 2.0 を立ち上げる
+1. Scratch 2 を立ち上げる
 1. [ファイル] をシフトクリックして実験的なHTTP拡張を読み込みを選ぶ
-1. scratch/s2speech_JP.s2e を開く
+1. 00scratch/s2speech_JP.s2e を開く
 1. s2speech.py を実行する
 
 ## 声の追加や変更 (htsvoices)
@@ -28,14 +28,14 @@ Scratch 2 Speech (wrapping python-openjtalk)
 ----
 
 ## Demo
-1. Run scratch 2.0 (offline)
-1. Open scratch/project.sb2
+1. Run scratch 2 (offline)
+1. Open 00scratch/project.sb2
 1. Run s2speech.py from command line : `python s2speech.py`
 
 ## How to use
-1. Run scratch 2.0
+1. Run scratch 2
 1. Shift-click the File menu and select "Import Experimental Extension"
-1. Open scratch/s2speech.s2e
+1. Open 00scratch/s2speech.s2e
 1. Run s2speech.py
 
 ## Add/change htsvoices
@@ -46,14 +46,13 @@ Scratch 2 Speech (wrapping python-openjtalk)
 
 ----
 ## Notes
-- Original scripts are from https://github.com/nvdajp/python-jtalk/
-    - Updated scripts for Python 3.5
+- Original python-jtalk scripts are from https://github.com/nvdajp/python-jtalk/
+    - Some scripts were updated for Python 3.5 and 64bit compiling
 - jtalk directory is from nvdajp
-- Compiled Mecab and OpenJTalk DLLs with 64bit
-- Asynchronous I/O (asyncio) HTTP server (aiohttp)
-- Config file for htsvoices : voices can be added easily
-- To build .msi, run `python setup.py bdist_msi`
+- Mecab and OpenJTalk DLLs were compiled with 64bit
+- Asynchronous I/O (asyncio) HTTP server (aiohttp) is used
+- To build .msi, run `python setup.py bdist_msi` with python 3.5 (64bit)
 
 ## License
-- GPL
+- GPL 3.0
 

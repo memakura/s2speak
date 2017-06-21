@@ -1,0 +1,28 @@
+{
+    "extensionName": "s2speech - Speech Synthesis",
+    "extensionPort": 50210,
+    "url": "https://github.com/memakura/s2speech",
+    "blockSpecs": [
+        [
+            "",
+            "speak %s",
+            "speak",
+            ""
+        ],
+        [
+            "w",
+            "speak and wait %s",
+            "speakwait",
+            ""
+        ],
+        [
+            "",
+            "change voice to %d.voice_id",
+            "changevoice",
+            "1"
+        ],
+    ],
+    "menus" : {
+        "voice_id":[1, 2, 3, 4]
+    }
+}
