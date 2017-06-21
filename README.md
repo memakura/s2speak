@@ -1,6 +1,8 @@
 # s2speech
 Scratch 2 Speech (wrapping python-openjtalk)
 
+![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
+
 ## 必要なもの / Requirement
 - Windows 10 (64bit) (Windows 7 や 8でも可?)
 - Scratch 2 offline editor

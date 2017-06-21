@@ -1,7 +1,7 @@
 # s2speech
 Use OpenJTalk from scratch 2 offline editor
 
-![s2speech](https://github.com/memakura/s2speech/images/ScratchSpeechSynth.png)
+![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
 
 ## Installation
 1. Select [Download] from https://github.com/memakura/s2speech/dist/s2speech-0.1-amd64.msi

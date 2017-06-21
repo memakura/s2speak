@@ -1,7 +1,7 @@
 # s2speech
 scratchで音声合成 (OpenJTalk を scratch 2 オフラインエディタから呼ぶ)
 
-![s2speech](https://github.com/memakura/s2speech/images/ScratchSpeechSynth.png)
+![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
 
 ## インストール
 1. https://github.com/memakura/s2speech/dist/s2speech-0.1-amd64.msi にて [Download] を選ぶ
