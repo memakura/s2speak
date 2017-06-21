@@ -1,5 +1,5 @@
 # s2speech
-Scratch 2 OpenJTalk (Speech Synthesis)    
+Scratch 2 Speech (wrapping python-openjtalk)
 
 ## 必要なもの / Requirement
 - Windows 10 (7? 8?)
@@ -52,6 +52,7 @@ Scratch 2 OpenJTalk (Speech Synthesis)
 - Compiled Mecab and OpenJTalk DLLs with 64bit
 - Asynchronous I/O (asyncio) HTTP server (aiohttp)
 - Config file for htsvoices : voices can be added easily
+- To build .msi, run `python setup.py bdist_msi`
 
 ## License
 - GPL

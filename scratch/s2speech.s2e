@@ -5,19 +5,19 @@
     "blockSpecs": [
         [
             "",
-            "%s と話す",
+            "speak %s",
             "speak",
             ""
         ],
         [
             "w",
-            "%s と話す(終わるまで待つ)",
+            "speak and wait %s",
             "speakwait",
             ""
         ],
         [
             "",
-            "声を%d.voice_id にする",
+            "change voice to %d.voice_id",
             "changevoice",
             "1"
         ],
