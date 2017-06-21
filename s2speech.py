@@ -23,6 +23,7 @@ import pstats
 from jtalkCore import *
 import jtalkPrepare
 
+import urllib
 import asyncio
 from aiohttp import web
 
@@ -182,7 +183,8 @@ class S2jtalk:
         return web.Response(text='ok')
 
     async def poll(self, request):
-        text = '_busy'
+        text = 'voicename ' + urllib.parse.quote(self.voices[self.voice_id]['name']) + '\n'
+        text += '_busy'
         for i in self.waiting_commands:
             text += ' ' + str(i)
         #if len(text) > 5: print(text)

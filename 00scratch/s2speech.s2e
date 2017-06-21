@@ -21,6 +21,11 @@
             "changevoice",
             "1"
         ],
+        [
+            "r",
+            "voice name",
+            "voicename"
+        ]
     ],
     "menus" : {
         "voice_id":[1, 2, 3, 4]
