@@ -4,7 +4,7 @@ Use OpenJTalk from scratch 2 offline editor
 ![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
 
 ## Installation
-1. Select [Download] from https://github.com/memakura/s2speech/dist/s2speech-0.1-amd64.msi
+1. Select [Download] from https://github.com/memakura/s2speech/blob/master/dist/s2speech-0.1-amd64.msi
     1. msi and files to be installed are large（more than 100MB files will be installed）
 1. Run downloaded s2speech-0.1-amd64.msi
     1. You may see warning messages if using Windows 7, 8, or 10
