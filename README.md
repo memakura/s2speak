@@ -1,5 +1,6 @@
 # s2speech
 Scratch 2 Speech (wrapping python-openjtalk)
+https://github.com/memakura/s2speech/tree/master/dist (インストーラ)
 
 ![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
 
@@ -7,7 +8,7 @@ Scratch 2 Speech (wrapping python-openjtalk)
 - Windows 10 (64bit) (Windows 7 や 8でも可?)
 - Scratch 2 offline editor
 - **dist 以下のインストーラを用いる場合は Python不要**
-    - https://github.com/memakura/s2speech/blog/master/dist/s2speech-0.1-amd64.msi
+    - https://github.com/memakura/s2speech/tree/master/dist
 - Python 3.5 (64bit) (pythonで直接実行する場合)
     - pyaudio (pip install pyaudio しておく)
     - aiohttp (pip install aiohttp しておく)
