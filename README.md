@@ -8,7 +8,7 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 ## 必要なもの / Requirement
 - Windows 10 (64bit) (Windows 7 や 8でも可?)
 - Scratch 2 offline editor
-- Python 3.5 (64bit) (pythonで直接実行する場合 **dist以下のインストーラを用いる場合は不要**)
+- Python 3.5 (64bit) (pythonで直接実行する場合) **dist以下のインストーラを用いる場合は不要**
     - pyaudio (pip install pyaudio しておく)
     - aiohttp (pip install aiohttp しておく)
 
