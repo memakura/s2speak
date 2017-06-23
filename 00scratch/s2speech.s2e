@@ -16,7 +16,7 @@
             ""
         ],
         [
-            "",
+            "w",
             "change voice to %d.voice_id",
             "changevoice",
             "1"

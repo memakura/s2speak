@@ -16,7 +16,7 @@
             ""
         ],
         [
-            "",
+            "w",
             "声を%d.voice_id にする",
             "changevoice",
             "1"

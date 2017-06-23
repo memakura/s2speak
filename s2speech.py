@@ -153,41 +153,42 @@ class S2jtalk:
             del a
         del mf
 
-    async def _do_synthesis(self, s):
+    def _do_synthesis(self, s):
         v = self.voices[self.voice_id]
         self.do_synthesis(s + "。", v, do_play=True, do_write=False, do_write_jt=False, do_log=False,
                           fperiod=v['fperiod'], pitch=50, inflection=50)
 
     async def changevoice(self, request):
+        command_id = request.match_info['command_id']
+        self.waiting_commands.add(command_id)
         self.voice_id = int(request.match_info['voice_id'])
         if self.voice_id > self.voice_id_max: self.voice_id = self.voice_id_max
         if self.voice_id < 1: self.voice_id = 1
         v = self.voices[self.voice_id]
         libjt_load(v['htsvoice'])
         print('changevoice: ', self.voice_id)
+        self.waiting_commands.remove(command_id)
         return web.Response(text='ok')
 
     async def speak(self, request):
         s = request.match_info['utterance']
         print('speak: ', s)
-        await self._do_synthesis(s)
+        self._do_synthesis(s)
         return web.Response(text='ok')
 
     async def speakwait(self, request):
         command_id = request.match_info['command_id']
+        self.waiting_commands.add(command_id)
         s = request.match_info['utterance']
         print('speakwait: ', s)
-        self.waiting_commands.add(command_id)
-        await self._do_synthesis(s)
+        self._do_synthesis(s)
         self.waiting_commands.remove(command_id)
         return web.Response(text='ok')
 
     async def poll(self, request):
         text = 'voicename ' + urllib.parse.quote(self.voices[self.voice_id]['name']) + '\n'
-        text += '_busy'
-        for i in self.waiting_commands:
-            text += ' ' + str(i)
-        #if len(text) > 5: print(text)
+        text += '_busy '
+        text += ' '.join(self.waiting_commands)
         return web.Response(text=text)
 
     async def crossdomain(self, request):
@@ -206,7 +207,7 @@ class S2jtalk:
         Mecab_initialize(print, self.mecab_dir)
 
         app = web.Application()
-        app.router.add_get('/changevoice/{voice_id}', self.changevoice)
+        app.router.add_get('/changevoice/{command_id}/{voice_id}', self.changevoice)
         app.router.add_get('/speak/{utterance}', self.speak)
         app.router.add_get('/speakwait/{command_id}/{utterance}', self.speakwait)
         app.router.add_get('/poll', self.poll)
