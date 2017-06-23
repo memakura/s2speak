@@ -6,9 +6,9 @@ scratchで音声合成 (OpenJTalk を scratch 2 オフラインエディタか�
 
 
 ## インストール
-1. https://github.com/memakura/s2speech/blob/master/dist/s2speech-0.1-amd64.msi にて [Download] を選ぶ
+1. https://github.com/memakura/s2speech/blob/master/dist/s2speech-0.2-amd64.msi にて [Download] を選ぶ
     - msiファイルおよびインストールされるファイル一式はいずれもサイズが大きい（100MB以上は必要）
-1. ダウンロードされた s2speech-0.1-amd64.msi を実行
+1. ダウンロードされた msi ファイルを実行
     1. Windows8以上では「WindowsによってPCが保護されました」と出る場合があるので，[詳細情報] をクリックして [実行]
     1. Windows7では「発行元が不明」と出るが[実行]
     1. （このほかウイルスチェックソフトでも発行元が不明に関して何かしら警告が出る可能性あり）

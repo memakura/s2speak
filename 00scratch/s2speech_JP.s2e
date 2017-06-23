@@ -1,5 +1,5 @@
 {
-    "extensionName": "s2speech - Speech Synthesis",
+    "extensionName": "s2speech",
     "extensionPort": 50210,
     "url": "https://github.com/memakura/s2speech",
     "blockSpecs": [
