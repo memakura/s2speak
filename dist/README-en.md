@@ -13,14 +13,14 @@ Use OpenJTalk from scratch 2 offline editor
 
 
 ## How to use
-1. Demo
+1. How to use demo
     - "C:\Program Files\s2speech\00scratch/project.sb2"
-1. How to use
+1. How to create a new project
     1. Run Scratch2 offline editor
-    1. Shift-click the File menu and select "Import Experimental Extension"
-    1. Select "C:\Program Files\s2speech\00scratch\s2speech_JP.s2e" (This file can be copied to other folder for editing)
+    1. Shift-click the File menu, click "Import Experimental Extension", and select "C:\Program Files\s2speech\00scratch\s2speech_JP.s2e" (This file can be copied to other folder for editing)
 1. Start s2speech by clicking the shortcut on the desktop and check if "==== Running on http://127.0.0.1:50210 ====" appears
     1. "voice_id : name_of_voice" in voices.cfg will be displayed
+    1. In the "More blocks" section, check that the red circle becomes green
 
 ## Add/change htsvoices
 1. Add additional .hts files and/or folders "C:\Users\<username>\AppData\Local\s2speech\htsvoices", and create "voices.cfg" to the same folder
