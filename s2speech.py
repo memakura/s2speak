@@ -193,7 +193,7 @@ class S2jtalk:
 
     async def crossdomain(self, request):
         text = '<cross-domain-policy>'
-        text += '<allow-access-from domain="*" to-ports="' + self.port + '"/>'
+        text += '<allow-access-from domain="*" to-ports="' + str(self.port) + '"/>'
         text += '</cross-domain-policy>'
         return web.Response(text=text)
 
