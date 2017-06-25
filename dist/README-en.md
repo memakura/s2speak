@@ -21,7 +21,7 @@ Use OpenJTalk from scratch 2 offline editor
     - "C:\Program Files\s2speech\00scratch/project.sb2"
 - How to create a new project
     1. In the Scratch2 offline editor, shift-click the File menu and select "Import Experimental Extension"
-    1. Select and open "C:\Program Files\s2speech\00scratch\s2speech_JP.s2e" (This file can be copied to other folder for editing)
+    1. Select and open "C:\Program Files\s2speech\00scratch\s2speech.s2e" (This file can be copied to other folder for editing)
 
 ## Add/change htsvoices
 1. Add additional .hts files and/or folders "C:\Users\<username>\AppData\Local\s2speech\htsvoices", and create "voices.cfg" to the same folder

@@ -20,13 +20,13 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 ## 使い方
 1. Scratch 2 を立ち上げる
 1. [ファイル] をシフトクリックして実験的なHTTP拡張を読み込みを選ぶ
-1. 00scratch/s2speech_JP.s2e を開く
+1. 00scratch/s2speech_JA.s2e を開く
 1. s2speech.py を実行する
 
 ## 声の追加や変更 (htsvoices)
 1. 追加の .hts ファイルもしくはフォルダを htsvoices/ に置く
 1. htsvoices/voices.cfg を適当に編集する
-1. 必要に応じて scratch/s2speech_JP.s2e を編集する (voice_id の番号追加など)
+1. 必要に応じて scratch/s2speech_JA.s2e を編集する (voice_id の番号追加など)
 1. s2speech.py を実行する
 
 ----

@@ -24,14 +24,14 @@ scratchで音声合成 (OpenJTalk を scratch 2 オフラインエディタか�
     - "C:\Program Files\s2speech\00scratch/project.sb2"
 - 新たに作成するとき
     1. Scratch2 offline editor でシフトキーを押しながら「ファイル」->「実験的なHTTP拡張を読み込み」を選ぶ
-    1. "C:\Program Files\s2speech\00scratch\s2speech_JP.s2e" を選択して開く（このファイルは別の分かりやすい場所にコピーしておいてもよい)
+    1. "C:\Program Files\s2speech\00scratch\s2speech_JA.s2e" を選択して開く（このファイルは別の分かりやすい場所にコピーしておいてもよい)
 
 ## 声の追加や変更 (htsvoices)
 1. 追加の .hts ファイルもしくはフォルダを "C:\Users\(ユーザ名)\AppData\Local\s2speech\htsvoices" に置き，同フォルダに voices.cfg を作成する
     - 初めて実行したときに htsvoicesフォルダは自動作成される
     - htsファイルの置き方や voices.cfg の作成は "C:\Program Files\s2speech\htsvoices" を参考にする
     - "C:\Program Files\s2speech\htsvoices" に追加する形で読まれる (voice_id の番号も追加されて順にふられる)
-1. 必要に応じて 00scratch\s2speech_JP.s2e をコピー・編集して読み込んでおく (voice_id の番号追加など)
+1. 必要に応じて 00scratch\s2speech_JA.s2e をコピー・編集して読み込んでおく (voice_id の番号追加など)
 1. s2speech.py を実行する
 
 ## Notes

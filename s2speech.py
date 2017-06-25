@@ -31,8 +31,8 @@ from aiohttp import web
 class S2jtalk:
     """ scratch 2 openjtalk """
     def __init__(self):
-        self.host = '127.0.0.1'
-        self.port = 50210
+        self.helper_host = '127.0.0.1'
+        self.helper_port = 50210 # port of this helper
 
         self.waiting_commands = set() # waiting block in scratch
 
@@ -47,8 +47,8 @@ class S2jtalk:
         if not os.path.exists(self.user_htsvoices_dir):
             os.makedirs(self.user_htsvoices_dir)
 
-        # prepare voice settings
         def _readconfig(path):
+            """ prepare voice settings """
             import configparser
             config = configparser.ConfigParser()
             config.read(path)
@@ -193,7 +193,7 @@ class S2jtalk:
 
     async def crossdomain(self, request):
         text = '<cross-domain-policy>'
-        text += '<allow-access-from domain="*" to-ports="' + str(self.port) + '"/>'
+        text += '<allow-access-from domain="*" to-ports="' + str(self.helper_port) + '"/>'
         text += '</cross-domain-policy>'
         return web.Response(text=text)
 
@@ -212,9 +212,9 @@ class S2jtalk:
         app.router.add_get('/speakwait/{command_id}/{utterance}', self.speakwait)
         app.router.add_get('/poll', self.poll)
         app.router.add_get('/crossdomain.xml', self.crossdomain)
-        web.run_app(app, host=self.host, port=self.port)
+        web.run_app(app, host=self.helper_host, port=self.helper_port)
 
 
 if __name__ == '__main__':
-    server = S2jtalk()
-    server.main()
+    s2jtalk = S2jtalk()
+    s2jtalk.main()
