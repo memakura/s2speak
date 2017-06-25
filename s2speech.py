@@ -28,7 +28,7 @@ import asyncio
 from aiohttp import web
 
 
-class S2jtalk:
+class S2JTalk:
     """ scratch 2 openjtalk """
     def __init__(self):
         self.helper_host = '127.0.0.1'
@@ -216,5 +216,5 @@ class S2jtalk:
 
 
 if __name__ == '__main__':
-    s2jtalk = S2jtalk()
+    s2jtalk = S2JTalk()
     s2jtalk.main()
