@@ -98,8 +98,15 @@ class S2JTalk:
         p.terminate()
 
 
-    def do_synthesis(self, msg, voice_args, do_play, do_write, do_write_jt, do_log,
-                     fperiod, pitch=50, inflection=50, vol=50):
+    def _do_synthesis(self, msg, voice_args): #, future):
+        do_play = True
+        do_write = False
+        do_write_jt = False
+        do_log = False
+        fperiod = voice_args['fperiod']
+        pitch = 50
+        inflection = 50
+        vol = 50
         msg = jtalkPrepare.convert(msg)
         s = text2mecab(msg)
         print("utf-8: (%s)" % s.decode('utf-8', 'ignore'))
@@ -152,11 +159,15 @@ class S2JTalk:
             libjt_refresh()
             del a
         del mf
+        #future.set_result(0)
 
-    def _do_synthesis(self, s):
+    def do_synthesis(self, s):
+        #loop = asyncio.get_event_loop()
+        #future = loop.create_future()
         v = self.voices[self.voice_id]
-        self.do_synthesis(s + "。", v, do_play=True, do_write=False, do_write_jt=False, do_log=False,
-                          fperiod=v['fperiod'], pitch=50, inflection=50)
+        self._do_synthesis(s + "。", v)
+        #loop.call_soon(self._do_synthesis, s + "。", v, future)
+        #return await future
 
     async def changevoice(self, request):
         command_id = request.match_info['command_id']
@@ -173,7 +184,7 @@ class S2JTalk:
     async def speak(self, request):
         s = request.match_info['utterance']
         print('speak: ', s)
-        self._do_synthesis(s)
+        self.do_synthesis(s)
         return web.Response(text='ok')
 
     async def speakwait(self, request):
@@ -181,7 +192,7 @@ class S2JTalk:
         self.waiting_commands.add(command_id)
         s = request.match_info['utterance']
         print('speakwait: ', s)
-        self._do_synthesis(s)
+        self.do_synthesis(s)
         self.waiting_commands.remove(command_id)
         return web.Response(text='ok')
 
