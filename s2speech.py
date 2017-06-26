@@ -35,6 +35,7 @@ class S2JTalk:
         self.helper_port = 50210 # port of this helper
 
         self.waiting_commands = set() # waiting block in scratch
+        self.speaking = False
 
         self.mecab_dir = r'.\jtalk'
         self.jt_lib_dir = r'.\jtalk'
@@ -81,8 +82,8 @@ class S2JTalk:
         self.voice_id = 1
 
 
-
-    def pa_play(self, data, samp_rate=16000):
+    # todo: async (need exclusive access)
+    async def pa_play(self, data, samp_rate=16000):
         import pyaudio
         p = pyaudio.PyAudio()
         stream = p.open(format=p.get_format_from_width(2), channels=1, rate=samp_rate, output=True)
@@ -93,12 +94,13 @@ class S2JTalk:
             o = data[pos:pos+a]
             stream.write(o)
             pos += a
-        time.sleep(float(size) / 2 / samp_rate)
+        #time.sleep(float(size) / 2 / samp_rate)
+        await asyncio.sleep(float(size) / 2 / samp_rate)
         stream.close()
         p.terminate()
 
 
-    def _do_synthesis(self, msg, voice_args): #, future):
+    async def _do_synthesis(self, msg, voice_args): #, future):
         do_play = True
         do_write = False
         do_write_jt = False
@@ -149,7 +151,7 @@ class S2JTalk:
             if data:
                 print('data size %d' % len(data))
                 if do_play:
-                    self.pa_play(data, samp_rate=voice_args['samp_rate'])
+                    await self.pa_play(data, samp_rate=voice_args['samp_rate'])
                 if do_write:
                     w = wave.Wave_write("_test%d.wav" % count)
                     w.setparams((1, 2, voice_args['samp_rate'],
@@ -161,11 +163,15 @@ class S2JTalk:
         del mf
         #future.set_result(0)
 
-    def do_synthesis(self, s):
+    async def do_synthesis(self, s):
         #loop = asyncio.get_event_loop()
         #future = loop.create_future()
         v = self.voices[self.voice_id]
-        self._do_synthesis(s + "。", v)
+        while self.speaking:
+            await asyncio.sleep(0.01)
+        self.speaking = True
+        await self._do_synthesis(s + "。", v)
+        self.speaking = False
         #loop.call_soon(self._do_synthesis, s + "。", v, future)
         #return await future
 
@@ -184,7 +190,7 @@ class S2JTalk:
     async def speak(self, request):
         s = request.match_info['utterance']
         print('speak: ', s)
-        self.do_synthesis(s)
+        await self.do_synthesis(s)
         return web.Response(text='ok')
 
     async def speakwait(self, request):
@@ -192,7 +198,7 @@ class S2JTalk:
         self.waiting_commands.add(command_id)
         s = request.match_info['utterance']
         print('speakwait: ', s)
-        self.do_synthesis(s)
+        await self.do_synthesis(s)
         self.waiting_commands.remove(command_id)
         return web.Response(text='ok')
 
@@ -223,8 +229,10 @@ class S2JTalk:
         app.router.add_get('/speakwait/{command_id}/{utterance}', self.speakwait)
         app.router.add_get('/poll', self.poll)
         app.router.add_get('/crossdomain.xml', self.crossdomain)
+        #try:
         web.run_app(app, host=self.helper_host, port=self.helper_port)
-
+        #finally:
+        #    web.close()
 
 if __name__ == '__main__':
     s2jtalk = S2JTalk()
