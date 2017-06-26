@@ -14,7 +14,7 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 
 ## デモ
 1. Scratch 2 (offline) を立ち上げる
-1. 00scratch/project.sb2 を開く
+1. 00scratch/s2speech_demo.sb2 を開く
 1. Pythonの動くコマンドラインで s2speech.py を実行する : `python s2speech.py`
 
 ## 使い方
@@ -33,19 +33,19 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 
 ## Demo
 1. Run scratch 2 (offline)
-1. Open 00scratch/project.sb2
+1. Open 00scratch/s2speech_demo.sb2
 1. Run s2speech.py from command line : `python s2speech.py`
 
 ## How to use
 1. Run scratch 2
 1. Shift-click the File menu and select "Import Experimental Extension"
-1. Open 00scratch/s2speech.s2e
+1. Open 00scratch/s2speech_EN.s2e
 1. Run s2speech.py
 
 ## Add/change htsvoices
 1. Add additional .hts files to htsvoices/
 1. Edit htsvoices/voices.cfg
-1. Edit scratch/speech.s2e if necessary (e.g., add numbers for voice_id)
+1. Edit scratch/s2speech_EN.s2e if necessary (e.g., add numbers for voice_id)
 1. Run s2speech.py
 
 ----

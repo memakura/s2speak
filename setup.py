@@ -7,7 +7,7 @@ from cx_Freeze import setup, Executable
 
 
 name = "s2speech"
-version = "0.2"
+version = "0.3"
 description = 'Scratch to Speech (wrapping python-openjtalk)'
 author = 'Hiroaki Kawashima'
 url ='https://github.com/memakura/s2speech'

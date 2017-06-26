@@ -2,11 +2,11 @@
 scratchで音声合成 (OpenJTalk を scratch 2 オフラインエディタから呼ぶ)
 
 ![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
-![block_and_sample](https://github.com/memakura/s2speech/blob/master/images/block_and_sample_JP.png)
+![block_and_sample](https://github.com/memakura/s2speech/blob/master/images/block_and_sample_JA.png)
 
 
 ## インストール
-1. https://github.com/memakura/s2speech/blob/master/dist/s2speech-0.2-amd64.msi にて [Download] を選ぶ
+1. https://github.com/memakura/s2speech/blob/master/dist/s2speech-0.3-amd64.msi にて [Download] を選ぶ
     - msiファイルおよびインストールされるファイル一式はいずれもサイズが大きい（100MB以上は必要）
 1. ダウンロードされた msi ファイルを実行
     1. Windows8以上では「WindowsによってPCが保護されました」と出る場合があるので，[詳細情報] をクリックして [実行]
@@ -21,7 +21,7 @@ scratchで音声合成 (OpenJTalk を scratch 2 オフラインエディタか�
 
 ## Scratchでの書き方
 - 以下のデモが参考になる
-    - "C:\Program Files\s2speech\00scratch/project.sb2"
+    - "C:\Program Files\s2speech\00scratch/s2speech_demo.sb2"
 - 新たに作成するとき
     1. Scratch2 offline editor でシフトキーを押しながら「ファイル」->「実験的なHTTP拡張を読み込み」を選ぶ
     1. "C:\Program Files\s2speech\00scratch\s2speech_JA.s2e" を選択して開く（このファイルは別の分かりやすい場所にコピーしておいてもよい)

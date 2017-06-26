@@ -1,0 +1,45 @@
+{
+    "extensionName": "s2speech",
+    "extensionPort": 50210,
+    "url": "https://github.com/memakura/s2speech",
+    "blockSpecs": [
+        [
+            "",
+            "speak %s",
+            "speak",
+            ""
+        ],
+        [
+            "w",
+            "speak and wait %s",
+            "speakwait",
+            ""
+        ],
+        [
+            "w",
+            "change voice to %d.voice_id",
+            "changevoice",
+            "1"
+        ],
+        [
+            "r",
+            "voice name",
+            "voicename"
+        ],
+        [
+            "w",
+            "change speech volume to %d.volume",
+            "changevolume",
+            "50"
+        ],
+        [
+            "r",
+            "speech volume",
+            "volume"
+        ]
+    ],
+    "menus" : {
+        "voice_id":[1, 2, 3, 4],
+        "volume":[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    }
+}

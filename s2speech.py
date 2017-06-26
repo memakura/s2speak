@@ -36,6 +36,7 @@ class S2JTalk:
 
         self.waiting_commands = set() # waiting block in scratch
         self.speaking = False
+        self.volume = 50 # default volume
 
         self.mecab_dir = r'.\jtalk'
         self.jt_lib_dir = r'.\jtalk'
@@ -108,7 +109,7 @@ class S2JTalk:
         fperiod = voice_args['fperiod']
         pitch = 50
         inflection = 50
-        vol = 50
+        vol = self.volume
         msg = jtalkPrepare.convert(msg)
         s = text2mecab(msg)
         print("utf-8: (%s)" % s.decode('utf-8', 'ignore'))
@@ -176,18 +177,6 @@ class S2JTalk:
         #loop.call_soon(self._do_synthesis, s + "。", v, future)
         #return await future
 
-    async def changevoice(self, request):
-        command_id = request.match_info['command_id']
-        self.waiting_commands.add(command_id)
-        self.voice_id = int(request.match_info['voice_id'])
-        if self.voice_id > self.voice_id_max: self.voice_id = self.voice_id_max
-        if self.voice_id < 1: self.voice_id = 1
-        v = self.voices[self.voice_id]
-        libjt_load(v['htsvoice'])
-        print('changevoice: ', self.voice_id)
-        self.waiting_commands.remove(command_id)
-        return web.Response(text='ok')
-
     async def speak(self, request):
         s = request.match_info['utterance']
         print('speak: ', s)
@@ -203,10 +192,45 @@ class S2JTalk:
         self.waiting_commands.remove(command_id)
         return web.Response(text='ok')
 
+    async def changevoice(self, request):
+        command_id = request.match_info['command_id']
+        try:
+            val = int(request.match_info['voice_id']) # need errorcheck here
+        except ValueError:
+            print("Ignored. Not a number: ", request.match_info['voice_id'])
+            return web.Response(text='failed')
+        self.waiting_commands.add(command_id)
+        if val > self.voice_id_max: self.voice_id = self.voice_id_max
+        elif val < 1: self.voice_id = 1
+        else: self.voice_id = val
+        v = self.voices[self.voice_id]
+        libjt_load(v['htsvoice'])
+        print("changevoice: ", str(self.voice_id))
+        self.waiting_commands.remove(command_id)
+        return web.Response(text='ok')
+
+    async def changevolume(self, request):
+        command_id = request.match_info['command_id']
+        try:
+            val = int(request.match_info['volume']) # need errorcheck here
+        except ValueError:
+            print("Ignored. Not a number: ", request.match_info['volume'])
+            return web.Response(text='failed')
+        self.waiting_commands.add(command_id)
+        if val > 100: self.volume = 100
+        elif val < 0: self.volume = 0
+        else: self.volume = val
+        print("changevolume: ", str(self.volume))
+        self.waiting_commands.remove(command_id)
+        return web.Response(text='ok')
+
     async def poll(self, request):
-        text = 'voicename ' + urllib.parse.quote(self.voices[self.voice_id]['name']) + '\n'
+        text = ''
+        text += 'voicename ' + urllib.parse.quote(self.voices[self.voice_id]['name']) + '\n'
+        text += 'volume ' + str(self.volume) + '\n'
         text += '_busy '
         text += ' '.join(self.waiting_commands)
+        #print(text)
         return web.Response(text=text)
 
     async def crossdomain(self, request):
@@ -225,9 +249,10 @@ class S2JTalk:
         Mecab_initialize(print, self.mecab_dir)
 
         app = web.Application()
-        app.router.add_get('/changevoice/{command_id}/{voice_id}', self.changevoice)
         app.router.add_get('/speak/{utterance}', self.speak)
         app.router.add_get('/speakwait/{command_id}/{utterance}', self.speakwait)
+        app.router.add_get('/changevoice/{command_id}/{voice_id}', self.changevoice)
+        app.router.add_get('/changevolume/{command_id}/{volume}', self.changevolume)
         app.router.add_get('/poll', self.poll)
         app.router.add_get('/crossdomain.xml', self.crossdomain)
         #try:
