@@ -45,7 +45,7 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 ## Add/change htsvoices
 1. Add additional .hts files to htsvoices/
 1. Edit htsvoices/voices.cfg
-1. Edit scratch/s2speech_EN.s2e if necessary (e.g., add numbers for voice_id)
+1. Edit 00scratch/s2speech_EN.s2e if necessary (e.g., add numbers for voice_id)
 1. Run s2speech.py
 
 ----
