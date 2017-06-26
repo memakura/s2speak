@@ -164,11 +164,12 @@ class S2JTalk:
         #future.set_result(0)
 
     async def do_synthesis(self, s):
+        """ call libjt exclusively """
         #loop = asyncio.get_event_loop()
         #future = loop.create_future()
         v = self.voices[self.voice_id]
         while self.speaking:
-            await asyncio.sleep(0.01)
+            await asyncio.sleep(0.01) # libjt cannot be called multiply
         self.speaking = True
         await self._do_synthesis(s + "。", v)
         self.speaking = False
