@@ -9,11 +9,10 @@ scratch 2.0 (オフライン版) で音声合成ができます (OpenJTalk を�
 1. https://github.com/memakura/s2speech/blob/master/dist/s2speech-0.3-amd64.msi にて [Download] を選びます．
     - msiファイルおよびインストールされるファイル一式はいずれもサイズが大きいので注意してください（100MB以上は必要）
 1. ダウンロードされた msi ファイルを実行します．
-    1. Windows8以上では「WindowsによってPCが保護されました」と出る場合があるので，[詳細情報] をクリックして [実行] してください．  
-    1. Windows7では「発行元が不明」と出るかもしれませんが，これも同じく[実行] を選んでください．  
-    1. （このほかウイルスチェックソフトでも発行元が不明に関して何かしら警告が出る可能性があります．）  
-1. インストール先は変えることができますが，特に指定しなければ "C:\Program Files\s2speech" にインストールされます．  
-(以下ではここにインストールしたことを前提に説明します．)
+    1. Windows8以上では「WindowsによってPCが保護されました」と出る場合があるので，[詳細情報] をクリックして [実行] してください．
+    1. Windows7では「発行元が不明」と出るかもしれませんが，これも同じく[実行] を選んでください．
+    1. （このほかウイルスチェックソフトでも発行元が不明に関して何かしら警告が出る可能性があります．）
+1. インストール先は変えることができますが，特に指定しなければ "C:\Program Files\s2speech" にインストールされます．(以下ではここにインストールしたことを前提に説明します．)
 
 ## s2speechの起動方法
 - デスクトップ上の s2speech を立ち上げて「==== Running on http://127.0.0.1:50210 ====」が表示されれば起動完了です．
@@ -43,10 +42,10 @@ scratch 2.0 (オフライン版) で音声合成ができます (OpenJTalk を�
     - s2speech実行時に，"C:\Program Files\s2speech\htsvoices" に追加する形で htsファイルが読み込まれます． (voice_id の番号も追加されて順にふられます．)
 1. 必要に応じて 00scratch\s2speech_JA.s2e をコピー・編集して使ってください．(voice_id の番号を追加する必要があります．)
 
-## Notes
+## コード，辞書や声のファイルについて
 - nvdajp(https://github.com/nvdajp/nvdajp) というスクリーンリーダー(読み上げソフト)の開発コードの一部を使用しています．具体的には以下の通りです．
     - DLL を呼ぶための python-jtalk スクリプトは https://github.com/nvdajp/python-jtalk/ からです．
-    - jtalk directory は nvdajp からのものです．
+    - jtalk directory は nvdajp に付属のものです．
     - Mecab と OpenJTalk DLLs はもともと32bit版でしたが，64bit で別途コンパイルしました．
 - nvdajp および OpenJTalk や Mecab，htsvoices などはそれぞれのラインセンスに従います．ThirdPartyLicenses.txt や COPYING などを確認してください．
 
