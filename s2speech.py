@@ -169,9 +169,9 @@ class S2JTalk:
         #loop = asyncio.get_event_loop()
         #future = loop.create_future()
         v = self.voices[self.voice_id]
-        while self.speaking:
-            await asyncio.sleep(0.01) # libjt cannot be called multiply
-        self.speaking = True
+        while self.speaking: # wait for complesion of previous speech
+            await asyncio.sleep(0.01)
+        self.speaking = True # libjt should be called exlusively
         await self._do_synthesis(s + "。", v)
         self.speaking = False
         #loop.call_soon(self._do_synthesis, s + "。", v, future)
@@ -193,29 +193,29 @@ class S2JTalk:
         return web.Response(text='ok')
 
     async def changevoice(self, request):
-        command_id = request.match_info['command_id']
         try:
             val = int(request.match_info['voice_id']) # need errorcheck here
         except ValueError:
             print("Ignored. Not a number: ", request.match_info['voice_id'])
             return web.Response(text='failed')
+        command_id = request.match_info['command_id']
         self.waiting_commands.add(command_id)
         if val > self.voice_id_max: self.voice_id = self.voice_id_max
         elif val < 1: self.voice_id = 1
         else: self.voice_id = val
+        print("changevoice: ", str(self.voice_id))
         v = self.voices[self.voice_id]
         libjt_load(v['htsvoice'])
-        print("changevoice: ", str(self.voice_id))
         self.waiting_commands.remove(command_id)
         return web.Response(text='ok')
 
     async def changevolume(self, request):
-        command_id = request.match_info['command_id']
         try:
             val = int(request.match_info['volume']) # need errorcheck here
         except ValueError:
             print("Ignored. Not a number: ", request.match_info['volume'])
             return web.Response(text='failed')
+        command_id = request.match_info['command_id']
         self.waiting_commands.add(command_id)
         if val > 100: self.volume = 100
         elif val < 0: self.volume = 0

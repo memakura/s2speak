@@ -36,3 +36,7 @@ Use OpenJTalk from scratch 2 offline editor
     - Some scripts were updated for Python 3.5 and 64bit compiling
 - jtalk directory is from nvdajp
 - Mecab and OpenJTalk DLLs were compiled with 64bit
+
+## License
+- GPL 3.0
+- See also ThirdPartyLicenses.txt

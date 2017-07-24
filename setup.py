@@ -8,7 +8,7 @@ from cx_Freeze import setup, Executable
 
 name = "s2speech"
 version = "0.3"
-description = 'Scratch to Speech (wrapping python-openjtalk)'
+description = 'Scratch to Speech (python-OpenJTalk Speeth Synthesis)'
 author = 'Hiroaki Kawashima'
 url ='https://github.com/memakura/s2speech'
 
@@ -40,7 +40,7 @@ msi_data = {"Shortcut": shortcut_table}
 build_exe_options = {"packages": ['asyncio'],
                     "excludes": [],
                     "includes": [],
-                    "include_files": ['jtalk/','htsvoices/','images/','00scratch/']
+                    "include_files": ['jtalk/','htsvoices/','images/','00scratch/', 'ThirdPartyLicenses.txt']
 }
 #                    "compressed": True
 

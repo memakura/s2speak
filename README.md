@@ -29,6 +29,10 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 1. 必要に応じて 00scratch/s2speech_JA.s2e を編集する (voice_id の番号追加など)
 1. s2speech.py を実行する
 
+## ライセンス
+- GPL 3.0
+- ThirdPartyLicenses.txt も確認してください．
+
 ----
 
 ## Demo
@@ -59,4 +63,5 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 
 ## License
 - GPL 3.0
+- See also ThirdPartyLicenses.txt
 
