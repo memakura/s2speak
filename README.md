@@ -1,5 +1,5 @@
 # s2speech
-Scratch 2 Speech (Offline speech syntheiss based on python-openjtalk)
+Scratch 2 Speech (Speech synthesis for offline scratch 2 powered by python-OpenJTalk)
 
 ## インストーラ版
 - [インストール方法(Wiki)はこちら](https://github.com/memakura/s2speech/wiki)
