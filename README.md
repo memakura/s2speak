@@ -1,7 +1,9 @@
 # s2speech
 Scratch 2 Speech (wrapping python-openjtalk)
 
-Installer: https://github.com/memakura/s2speech/tree/master/dist
+## インストーラー版
+- [インストール方法(Wiki)はこちら](https://github.com/memakura/s2speech/wiki)
+- [インストーラ(msiファイル)はこちら](https://github.com/memakura/s2speech/releases)
 
 ![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
 
