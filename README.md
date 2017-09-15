@@ -52,6 +52,10 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 1. Edit 00scratch/s2speech_EN.s2e if necessary (e.g., add numbers for voice_id)
 1. Run s2speech.py
 
+## License
+- GPL 3.0
+- See also ThirdPartyLicenses.txt
+
 ----
 ## Notes
 - Original python-jtalk scripts are from https://github.com/nvdajp/python-jtalk/
@@ -60,8 +64,4 @@ Installer: https://github.com/memakura/s2speech/tree/master/dist
 - Mecab and OpenJTalk DLLs were compiled with 64bit (VC2015)
 - Asynchronous I/O (asyncio) HTTP server (aiohttp) is used
 - To build .msi, run `python setup.py bdist_msi` with python 3.5 (64bit)
-
-## License
-- GPL 3.0
-- See also ThirdPartyLicenses.txt
 
