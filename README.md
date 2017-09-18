@@ -1,13 +1,14 @@
 # s2speech
 Scratch 2 Speech (Speech synthesis for offline scratch 2 powered by python-OpenJTalk)
 
-## インストーラ版 (Python のインストール不要)
+![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
+
+## インストーラ版
+Python のインストール不要
 - [インストールおよびブロックの使用方法はこちら (Wiki)](https://github.com/memakura/s2speech/wiki)
 - [インストーラ (msiファイル) のダウンロードはこちら](https://github.com/memakura/s2speech/releases)
 
-![s2speech](https://github.com/memakura/s2speech/blob/master/images/ScratchSpeechSynth.png)
-
-以下では Python から実行する場合を説明します．Python をインストールせずに実行する場合は上のインストーラ版をお使いください．
+**以下では Python から実行する場合を説明します．Python をインストールせずに実行する場合は上のインストーラ版をお使いください．**
 
 ## 必要なもの / Requirement
 - Windows 10 (64bit) (Windows 7 や 8でも可?)
