@@ -1,7 +1,7 @@
 # s2speech
 Scratch 2 Speech (Speech synthesis for offline scratch 2 powered by python-OpenJTalk)
 
-## インストーラ版
+## インストーラ版 (Python のインストール不要)
 - [インストールおよびブロックの使用方法はこちら (Wiki)](https://github.com/memakura/s2speech/wiki)
 - [インストーラ (msiファイル) のダウンロードはこちら](https://github.com/memakura/s2speech/releases)
 
