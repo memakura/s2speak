@@ -1,18 +1,15 @@
-# s2speech.py
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Scratch 2 Speech
-#  2017.6
-#  Hiroaki Kawashima
-
-# --- Originally jtalkRunner.py ---
-# Japanese speech engine test module
-# by Takuya Nishimoto
-# http://ja.nishimotz.com/project:libopenjtalk
-# Usage:
-# > python jtalkRunner.py
-# requires pyaudio (PortAudio wrapper)
-# http://people.csail.mit.edu/hubert/pyaudio/
-
+"""
+ s2speech.py
+ Scratch 2 Speech
+  2017.6
+  Hiroaki Kawashima
+ --- Special thanks to jtalkRunner.py ---
+ Japanese speech engine test module
+ by Takuya Nishimoto
+ http://ja.nishimotz.com/project:libopenjtalk
+"""
 
 import os
 import sys
