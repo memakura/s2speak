@@ -1,7 +1,7 @@
 {
-    "extensionName": "s2speech",
+    "extensionName": "s2speak",
     "extensionPort": 50210,
-    "url": "https://github.com/memakura/s2speech",
+    "url": "https://github.com/memakura/s2speak",
     "blockSpecs": [
         [
             "",
