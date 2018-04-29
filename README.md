@@ -1,3 +1,5 @@
+[(English)](#English)
+
 # s2speak
 Speech synthesis blocks for offline Scratch 2 (powered by python-OpenJTalk)
 
@@ -42,6 +44,8 @@ Python のインストール不要
 - ThirdPartyLicenses.txt も確認してください．
 
 ----
+
+<a name="English">
 
 ## Demo
 1. Run scratch 2 (offline)
