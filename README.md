@@ -1,4 +1,4 @@
-[(English)](#English)
+[(English)](#English) [(他の拡張ブロック)](https://memakura.github.io/dialogsystem/)
 
 # s2speak
 Speech synthesis blocks for offline Scratch 2 (powered by python-OpenJTalk)
@@ -10,7 +10,7 @@ Python のインストール不要
 - [インストールおよびブロックの使用方法はこちら (Wiki)](https://github.com/memakura/s2speak/wiki)
 - [インストーラ (msiファイル) のダウンロードはこちら](https://github.com/memakura/s2speak/releases)
 
-**以下では Python から実行する場合を説明します．Python をインストールせずに実行する場合は上のインストーラ版をお使いください．**
+**以下では Python から実行する場合を説明します。Python をインストールせずに実行する場合は上のインストーラ版をお使いください。**
 
 ## 設計方針
 - [対話システム全体の設計方針](https://memakura.github.io/dialogsystem)
@@ -41,7 +41,7 @@ Python のインストール不要
 
 ## ライセンス
 - GPL 3.0
-- ThirdPartyLicenses.txt も確認してください．
+- ThirdPartyLicenses.txt も確認してください。
 
 ----
 
